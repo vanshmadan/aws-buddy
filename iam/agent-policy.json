@@ -1,0 +1,34 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CallTheModelOnBedrock",
+      "Effect": "Allow",
+      "Action": ["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "SeeWhichBucketsExist",
+      "Effect": "Allow",
+      "Action": ["s3:ListAllMyBuckets", "s3:GetBucketLocation"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ReadBucketDetails",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetBucketPublicAccessBlock",
+        "s3:GetEncryptionConfiguration",
+        "s3:GetBucketVersioning"
+      ],
+      "Resource": "arn:aws:s3:::PREFIX-*"
+    },
+    {
+      "Sid": "TheOnlyFixItMayMake",
+      "Effect": "Allow",
+      "Action": "s3:PutBucketPublicAccessBlock",
+      "Resource": "arn:aws:s3:::PREFIX-*"
+    }
+  ]
+}

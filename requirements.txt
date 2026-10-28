@@ -1,0 +1,2 @@
+strands-agents[anthropic,gemini]>=1.61
+boto3>=1.35
